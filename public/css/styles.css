@@ -4,3 +4,235 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Reset */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+/* Header styling */
+.logo-account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  color: #222;
+  padding: 15px 20px;
+}
+
+.site-name a{
+  font-size: 1.8rem;  /* bigger */
+  font-weight: bold;
+  text-decoration: none;
+  color: #222;
+}
+
+.account-link {
+  text-decoration: none;
+  color: #222;
+  font-size: 1rem;
+}
+
+/* Nav row */
+.nav {
+  background: #222; /* dark bg */
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 0;
+  list-style: none;
+}
+
+.nav a {
+  color: #fff;  /* white text */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #ff6600; /* optional hover color */
+}
+
+
+/* Section hero styling */
+
+/* Hero heading */
+.hero h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2; 
+}
+
+.DMC-car{
+  position: relative;
+}
+
+/* DMC overlay */
+.DMC {
+  position: absolute;
+  top: -10px;
+  left: 0px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* DMC text styling */
+.DMC h2 {
+  font-size: 1.1rem; 
+  color: #0877af;    
+  margin-bottom: 10px;
+}
+
+.DMC p {
+  font-size: .8rem;
+  color: #0877af; 
+  margin: 5px 0;
+}
+
+/* CTA button */
+.cta-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  font-size: .8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000; 
+  background: rgba(0, 122, 255, 0.8); 
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cta-btn:hover {
+  background: rgba(0, 122, 255, 1);
+  transform: translateY(-2px);
+}
+
+.delorean-car img {
+  width: 350px;  
+  height: auto;  
+}
+
+/* *********************************************** Review-Upgrades styling *********************************************** */
+.reviews-upgrades {
+  display: grid;
+  grid-template-columns: 1fr;   /* single column on mobile */
+  gap: 0px;
+}
+
+.reviews h2 {
+  margin-bottom: 10px;   
+}
+
+.reviews ul {
+  margin: 0;
+  padding-left: 20px;           
+}
+
+/* Style list items */
+.reviews li {
+  margin-bottom: 12px;  
+  line-height: 1.1;    
+  font-weight: bold;  
+}
+
+/* Upgrades grid (2x2) */
+.four-grids {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px; 
+  margin-top: 15px;
+}
+
+/* Each upgrade item */
+.each-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Blue rectangle only behind the image */
+.img-box {
+  background: #007bff;     
+  border: 2px solid #000;   
+  width: 165px;           
+  height: 80px;           
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;      
+}
+
+/* Small image inside rectangle */
+.img-box img {
+  max-width: 60px;
+  max-height: 60px;
+  height: auto;
+}
+
+#flame{
+  max-width: 70px;
+  max-height: 70px;
+  height: auto;
+  margin-top: 30px;
+}
+
+/* Label under rectangle */
+.each-grid a {
+  text-align: center;
+}
+
+.footer{
+  margin-top: 25px;
+}
+
+/* MEDIA QUERIES */
+/* Two columns on larger screens */
+@media (min-width: 768px) {
+  main, .header, .nav, footer{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .reviews-upgrades {
+    grid-template-columns: 1fr 1fr; 
+    align-items: start;
+  }
+
+  .upgrades {
+    order: 1;
+  }
+  .reviews {
+    order: 2;
+  }
+
+  .DMC, .delorean-car{
+    margin-left: 70px;
+  }
+
+  .nav ul {
+    gap: 90px;
+  }
+
+  .delorean-car img {
+    width: 410px;   /* set a fixed width */
+    height: auto;   /* keeps proportions */
+  }
+
+  .DMC h2 {
+    font-size: 1.4rem;
+  }
+  .DMC p{
+    font-size: 1rem;
+  }
+  .reviews li {
+    margin-bottom: 5px;  
+    line-height: 2.5;    
+
+  }
+}

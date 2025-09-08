@@ -3,6 +3,8 @@
 # and comments are unnecessary, but included for 
 # clarification.
 
+README.md
+
 # node_modules is a storage folder for Node and
 # can get very large.
 node_modules
