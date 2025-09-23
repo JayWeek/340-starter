@@ -11,7 +11,7 @@ CREATE TABLE public.classification(
 	CONSTRAINT classification_pk PRIMARY KEY (classification_id)
 );
 
--- Table structure for table 'invemtory'
+-- Table structure for table 'invemtory' (vehicles)
 
 CREATE TABLE IF NOT EXISTS public.inventory
 (

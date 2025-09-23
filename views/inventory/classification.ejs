@@ -1,0 +1,11 @@
+<main class="error-page">
+  <% if (title) { %>
+  <h1 class="h1-title"><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
+
+  <%# messages() %>
+
+  <%- grid %>
+</main>

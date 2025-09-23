@@ -23,7 +23,7 @@ body {
 }
 
 .site-name a{
-  font-size: 1.8rem;  /* bigger */
+  font-size: 1.3rem;  /* bigger */
   font-weight: bold;
   text-decoration: none;
   color: #222;
@@ -32,7 +32,7 @@ body {
 .account-link {
   text-decoration: none;
   color: #222;
-  font-size: 1rem;
+  font-size: .7rem;
 }
 
 /* Nav row */
@@ -51,7 +51,7 @@ body {
 .nav a {
   color: #fff;  /* white text */
   text-decoration: none;
-  font-size: 1rem;
+  font-size: .7rem;
   transition: color 0.3s;
 }
 
@@ -189,6 +189,7 @@ body {
 
 .footer{
   margin-top: 25px;
+  padding: 15px 20px;
 }
 
 /* MEDIA QUERIES */
@@ -219,6 +220,14 @@ body {
     gap: 90px;
   }
 
+  .nav a, .account-link{
+    font-size: 1rem;
+  }
+
+  .site-name a{
+    font-size: 1.8rem;
+  }
+
   .delorean-car img {
     width: 410px;   /* set a fixed width */
     height: auto;   /* keeps proportions */
@@ -236,3 +245,140 @@ body {
 
   }
 }
+
+.h1-title{
+  margin-top: -30px;
+  text-align: center;
+}
+
+/* ====== Inventory Grid ====== */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first: single column */
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+/* Card styling */
+#inv-display li {
+  background-color: #fff; /* white card */
+  color: #111;            /* near-black text for readability */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* Vehicle image */
+#inv-display li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Name + Price container */
+#inv-display .namePrice {
+  padding: 1rem;
+  text-align: center;
+}
+
+#inv-display h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+#inv-display h2 a {
+  color: #111; /* black links */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#inv-display h2 a:hover {
+  color: #000; /* even darker on hover */
+  text-decoration: underline;
+}
+
+#inv-display span {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #333; /* dark gray for price */
+}
+
+/* ====== Responsive Grid ====== */
+@media (min-width: 600px) {
+  #inv-display {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  #inv-display {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* Vehicle details page */
+.vehicle-detail {
+  margin: 2rem 0;
+}
+
+#vehicle-detail-h1{
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  margin-top: -30px;
+}
+
+.vehicle-detail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.vehicle-image, .vehicle-info {
+  flex: 1 1 300px;
+}
+
+.vehicle-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.vehicle-info p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+
+@media (min-width: 768px) {
+  #vehicle-detail-h1{
+    font-size: 1.8rem;
+  }
+}
+
+
+/* Error 500 page styles */
+.error-page {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.error-page h1 { font-size: 1.75rem; margin-bottom: 1rem; }
+.error-content .notice { margin: 1rem 0; color: #b00020; }
+@media (min-width: 700px) {
+  .error-page { padding: 3rem; }
+}
+
+
