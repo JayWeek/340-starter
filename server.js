@@ -13,6 +13,7 @@ const static = require("./routes/static")
 const inventoryRoute = require("./routes/inventoryRoute")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities/index")
+const errorRoute = require("./routes/errorRoute")
 
 
 
@@ -34,6 +35,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
 
+// error route
+app.use("/error", errorRoute)
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
@@ -48,13 +52,23 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav()
   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = "Oh no! There seems to be a problem."}
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
+
+  let status = err.status || 500
+  let message
+
+  if (status === 404) {
+    message = err.message || "Sorry, we appear to have lost that page."
+  } else {
+    message = "Oh no! There seems to be a problem."
+  }
+
+  res.status(status).render("errors/error", {
+    title: status,
     message,
     nav
   })
 })
+
 
 /* ***********************
  * Local Server Information
