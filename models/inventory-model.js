@@ -27,18 +27,21 @@ async function getInventoryByClassificationId(classification_id) {
 }
 
 async function getVehicleById(inv_id) {
+  const query = {
+    text: `SELECT * FROM public.inventory WHERE inv_id = $1`,
+    values: [inv_id],
+    name: 'fetch-vehicle-by-id' // prepared statement identifier
+  }
+
   try {
-    const data = await pool.query(
-      `SELECT * FROM public.inventory
-      WHERE inv_id = $1`, [inv_id]
-    )
-    return data.rows[0];
-    
+    const result = await pool.query(query)
+    return result.rows[0]
   } catch (error) {
-    console.error("Database error in getVehicleById:", error);
-    throw error; // rethrow so Express can handle it with next(error)
+    console.error("Database error in getVehicleById:", error)
+    throw error
   }
 }
+
 
 
 
