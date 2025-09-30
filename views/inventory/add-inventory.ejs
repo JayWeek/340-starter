@@ -1,0 +1,50 @@
+<main>
+    <h1><%= title %></h1>
+    
+    <%- messages() %>
+
+    <% if (errors && errors.length > 0) {%>
+        <ul class="notice">
+            <% errors.forEach(error => {%>
+                <li><%= error.msg %></li>
+            <% }) %>; 
+        </ul>
+        
+    <% } %> 
+
+    <form action="/inv/add/inventory" method="post">
+        <div class="container">
+            <label for="inv_make">Inv Make:</label>
+            <input type="text" id="inv_make" name="inv_make" required value="<%= locals.inv_make %>">
+
+            <label for="inv_model">Inv Model:</label>
+            <input type="text" id="inv_model" name="inv_model" required value="<%= locals.inv_model %>">
+
+            <label for="inv_year">Inv Year:</label>
+            <input type="number" id="inv_year" name="inv_year" required min="1900" max="2100" value="<%= locals.inv_year %>">
+
+            <label for="inv_description">Inv Description:</label>
+            <textarea id="inv_description" name="inv_description" required><%= locals.inv_description %></textarea>
+
+            <label for="inv_image">Inv Image:</label>
+            <input type="text" id="inv_image" name="inv_image" value="<%= locals.inv_image || '/images/vehicles/no-image.png' %>" required>
+
+            <label for="inv_thumbnail">Inv thumbnail:</label>
+            <input type="text" id="inv_thumbnail" name="inv_thumbnail" value="<%= locals.inv_thumbnail || '/images/vehicles/no-image-tn.png' %>" required>
+
+            <label for="inv_price">Inv Price:</label>
+            <input type="number" id="inv_price" name="inv_price" required min="0" value="<%= locals.inv_price %>">
+
+            <label for="inv_miles">Inv Miles:</label>
+            <input type="number" id="inv_miles" name="inv_miles" required min="0" value="<%= locals.inv_miles %>">
+
+            <label for="inv_color">Inv Color:</label>
+            <input type="text" id="inv_color" name="inv_color" required value="<%= locals.inv_color %>">
+
+            <!-- Classification drop down -->
+            <label for="classification_id">Classification</label>
+            <%- classifications %>
+            <button type="submit">Add Inventory</button>
+        </div>
+    </form>
+</main>

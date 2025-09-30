@@ -1,0 +1,22 @@
+<main>
+    <h1><%= title %></h1>
+    
+    <%- messages() %>
+    
+    <% if (errors && errors.length > 0) {%>
+        <ul class="notice">
+            <% errors.forEach(error => {%>
+                <li><%= error.msg %></li>
+            <% }) %>; 
+        </ul>
+        
+    <% } %> 
+
+    <form action="/inv/add/classification" method="post">
+        <div class="container">
+            <label for="classification_name">Classification Name:</label>
+            <input type="text" id="classification_name" name="classification_name" required minlength="3" maxlength="30" pattern="[A-Za-z0-9\s]+" value="<%= locals.classification_name %>">
+            <button type="submit">Add Classification</button>
+        </div>
+    </form>
+</main>  

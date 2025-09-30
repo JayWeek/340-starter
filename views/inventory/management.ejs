@@ -1,0 +1,17 @@
+<main>
+    <% if (title) { %>
+        <h1><%= title %></h1>
+    <%  }else {
+            res.redirect("/")
+    }%>
+    <%- messages() %>
+
+    <section>
+        <p>
+            <a href="/inv/add/classification" class="action-link">Add New Classification Item</a>
+        </p>
+        <p>
+            <a href="/inv/add/inventory" class="action-link">Add New Inventory Item</a>
+        </p>
+    </section>
+</main>
