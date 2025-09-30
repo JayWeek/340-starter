@@ -49,7 +49,7 @@ body {
 .nav ul {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   padding: 12px 0;
   list-style: none;
 }
@@ -223,7 +223,7 @@ body {
   }
 
   .nav ul {
-    gap: 90px;
+    gap: 70px;
   }
 
   .nav a, .account-link{
